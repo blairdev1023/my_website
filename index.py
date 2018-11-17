@@ -3,7 +3,7 @@ import dash_html_components as html
 from dash.dependencies import Input, Output
 
 from app import app
-from apps import app1, app2, app3
+from apps import home_app, gun_violence_app, google_revenue_app
 
 
 app.layout = html.Div([
@@ -14,12 +14,12 @@ app.layout = html.Div([
 @app.callback(Output('page-content', 'children'),
               [Input('url', 'pathname')])
 def display_page(pathname):
-    if pathname == '/apps/app1':
-         return app1.layout
-    elif pathname == '/apps/app2':
-         return app2.layout
-    elif pathname == '/apps/app3':
-         return app3.layout
+    if pathname == '/home':
+         return home_app.layout
+    elif pathname == '/gun_violence':
+         return gun_violence_app.layout
+    elif pathname == '/google_revenue':
+         return google_revenue_app.layout
     else:
         return '404'
 
